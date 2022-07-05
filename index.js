@@ -4,6 +4,7 @@ const index = express();
 const port = 3000;
 
 const usersRouter = require("./routes/users");
+const vouchersRouter = require("./routes/vouchers")
 
 index.use(express.json());
 index.use(express.urlencoded({extended: true}));
@@ -11,6 +12,7 @@ index.use(express.urlencoded({extended: true}));
 index.get("/",(req, res) => {res.json({message:"ok"});});
 
 index.use("/Users",usersRouter);
+index.use("/Vouchers",vouchersRouter);
 index.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
     console.error(err.message, err.stack);

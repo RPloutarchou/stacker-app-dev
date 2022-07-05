@@ -43,9 +43,9 @@ async function addUser(userData) {
     return { message };
 }
 
-async function removeUser(id) {
+async function removeUser(uid) {
     const res = await db.query(
-        `DELETE FROM users WHERE uid = ${id}`
+        `DELETE FROM users WHERE uid = ${uid}`
     );
 
     let message = '';
